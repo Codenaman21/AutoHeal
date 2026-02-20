@@ -12,6 +12,7 @@ import {
   User
 } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
+import { API_BASE } from "../config"; // adjust path if needed
 
 interface DashboardProps {
   onExit: () => void;
@@ -34,7 +35,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onExit }) => {
     setStarting(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/start", {
+      const res = await fetch(`${API_BASE}/api/start`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
