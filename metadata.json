@@ -1,0 +1,9 @@
+
+{
+  "name": "STHIRA: Real-Time Deepfake Authentication",
+  "description": "A high-performance, forensic platform for authenticating AI-generated media using on-device structural stability analysis and compression-aware fingerprinting.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
