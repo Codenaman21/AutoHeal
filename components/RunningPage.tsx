@@ -10,6 +10,7 @@ import {
   Clock
 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { API_BASE } from "../config"; // adjust path if needed
 
 type StepStatus = "pending" | "running" | "done" | "failed";
 
@@ -56,7 +57,7 @@ export const RunningPage: React.FC = () => {
   useEffect(() => {
     if (!runId) return;
 
-    const evtSource = new EventSource(`http://localhost:5000/api/stream/${runId}`);
+    const evtSource = new EventSource(`${API_BASE}/api/stream/${runId}`);
 
     evtSource.onmessage = (event) => {
       const payload = JSON.parse(event.data);
@@ -114,7 +115,7 @@ export const RunningPage: React.FC = () => {
       evtSource.close();
 
       try {
-        const res = await fetch(`http://localhost:5000/api/result/${runId}`);
+        const res = await fetch(`${API_BASE}/api/result/${runId}`);
         if (res.ok) {
           const resultData = await res.json();
           navigate("/result", { state: resultData });
