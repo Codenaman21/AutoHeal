@@ -120,7 +120,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard onExit={() => window.location.href = "/"} />} />
         <Route path="/loading" element={<LoadingScreen />} />
         <Route path="/running" element={<RunningPage />} />
